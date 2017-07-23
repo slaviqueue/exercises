@@ -21,8 +21,9 @@ describe('compose(...functions)', () => {
       createPerson('Sabu', 23)
     ];
 
+    //We could do it using only single filter, but this is proof of concept.
     const fireEmployesYoungerThanTwenty = compose(
-      employees => employees.map(employee => employee.age < 20 ? ({ ...employee, fired: true }) : employee),
+      employees => employees.map(employee => employee.age < 20 ? { ...employee, fired: true } : employee),
       employees => employees.filter(employee => !employee.fired)
     );
 
